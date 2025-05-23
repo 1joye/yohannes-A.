@@ -249,7 +249,7 @@ header .container {
 }
 
 .skills h3 {
-    color: #3498db;
+    color: var(--text-color);
     margin-bottom: 15px;
     font-size: 1.5rem;
     position: relative;
