@@ -141,7 +141,8 @@ header .container {
     font-size: 28px;
     font-weight: 700;
     color: var(--primary-color);
-     background-color:silver;
+    background-color: var(--light-color);
+    border-radius: 10px;
 }
 
 .nav-links {
@@ -247,18 +248,64 @@ header .container {
     flex: 1;
 }
 
+.skills h3 {
+    color: #3498db;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.skills h3::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: -5px;
+    left: 0;
+    background: linear-gradient(90deg, #3498db, rgba(52, 152, 219, 0.3));
+    border-radius: 3px;
+}
+
 .skill-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
     margin-bottom: 20px;
 }
 
 .skill-tags span {
-    background-color: var(--light-color);
-    padding: 5px 15px;
-    border-radius: 20px;
+    background-color: #3498db;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 25px;
     font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 4px 8px rgba(52, 152, 219, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-tags span::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.skill-tags span:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(52, 152, 219, 0.3);
+}
+
+.skill-tags span:hover::before {
+    left: 100%;
+}
 }
 /* Education Section Styles */
 #education {
@@ -283,7 +330,7 @@ header .container {
     transform: translateX(-50%);
     width: 80px;
     height: 4px;
-    background: linear-gradient(90deg, #3498db, #9b59b6);
+    background-color: var(--primary-color);
     border-radius: 2px;
 }
 
@@ -298,7 +345,7 @@ header .container {
     content: '';
     position: absolute;
     width: 4px;
-    background: linear-gradient(to bottom, #3498db, #9b59b6);
+    background-color: var(--primary-color);
     top: 0;
     bottom: 0;
     left: 50%;
@@ -326,7 +373,7 @@ header .container {
 }
 
 .timeline-date {
-    background: linear-gradient(135deg, #3498db, #9b59b6);
+    background-color: var(--primary-color);
     color: white;
     padding: 10px 15px;
     border-radius: 20px;
@@ -337,7 +384,7 @@ header .container {
 }
 
 .timeline-item:nth-child(even) .timeline-date {
-    background: linear-gradient(135deg, #9b59b6, #3498db);
+    background-color: var(--primary-color);
 }
 
 .timeline-content {
@@ -383,7 +430,7 @@ header .container {
     position: absolute;
     width: 20px;
     height: 20px;
-    background: linear-gradient(135deg, #3498db, #9b59b6);
+    background-color: var(--primary-color);
     border: 4px solid white;
     border-radius: 50%;
     top: 30px;
@@ -523,6 +570,9 @@ header .container {
 }
 
 /* Services Section */
+.services{
+    background-color: #f9f9f9;
+}
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -758,6 +808,7 @@ footer {
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         transform: translateY(-150%);
         transition: var(--transition);
+        opacity:90%;
     }
     
     .nav-links.active {
