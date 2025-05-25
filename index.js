@@ -129,26 +129,16 @@ document.addEventListener('DOMContentLoaded', function() {
         slideInterval = setInterval(nextSlide, 5000);
     });
     
-    // Form Submission
-    const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const name = this.querySelector('input[type="text"]').value;
-            const email = this.querySelector('input[type="email"]').value;
-            const subject = this.querySelector('input[type="text"]:nth-of-type(2)').value;
-            const message = this.querySelector('textarea').value;
-            
-            // Here you would typically send the data to a server
-            // For demo purposes, we'll just log it and show an alert
-            console.log({name, email, subject, message});
-            
-            alert('Thank you for your message! I will get back to you soon.');
-            this.reset();
-        });
-    }
+     // Form Submission
+function sendEmail() {
+  let parms = {
+name: document.getElementById('name').value,
+  email: document.getElementById('email').value,
+  phone: document.getElementById('phone').value,
+  message: document.getElementById('message').value,
+  };
+emailjs.send("service_v11l7gp,template_q7llkkh",parms).then(alert('Thank you for your message! I will get back to you soon.'));
+  }
     
     // Animation on Scroll
     const animateOnScroll = () => {
